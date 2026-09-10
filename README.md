@@ -25,18 +25,15 @@ Phishing remains one of the most common attack vectors, relying on urgency, fear
 ![legitimate result](Screenshot%202026-09-09%20223343.png)
 
 ## Tech stack
+## Accuracy testing
 
-Python, `re` (regular expressions) for pattern matching. No external API or paid service required — fully rule-based and runs offline.
+To validate the detection logic, the tool was tested against a labeled set of 20 sample emails (10 phishing, 10 legitimate), covering common phishing patterns (urgency language, suspicious links, account-suspension threats) and typical everyday work emails.
 
-## Run it yourself
+![accuracy test result](Screenshot%202026-09-11%20015628.png)
 
-```bash
-python detector.py
-```
+**Result: 20/20 (100%) correctly classified** on this test set.
 
-## What I learned
-
-This project reinforced how phishing emails follow recognizable patterns — urgency language, suspicious links, and specific manipulative phrases — and how a simple weighted scoring system across independent signal categories can catch a large share of phishing attempts without needing machine learning.
+Note: this test set was manually constructed to represent common phishing patterns and typical legitimate emails: it demonstrates that the detection rules work correctly for the patterns they were designed to catch, but a larger, independently sourced dataset would be needed to measure real-world accuracy more rigorously.
 
 ## Possible extensions
 
